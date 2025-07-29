@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="parametersgroup" abstract="true">
+        <xs:annotation>
+            <xs:documentation>
+                Abstract element for parameter elements.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+
     <xs:element name="set">
         <xs:annotation>
             <xs:documentation>
@@ -73,7 +82,7 @@
     </xs:element>
 
 
-    <xs:element name="bank">
+    <xs:element name="bank" substitutionGroup="parametersgroup">
         <xs:annotation>
             <xs:documentation>
                 Allows the user to change any numerical value in the .NOM file through an interactive slider in the GUI.
@@ -113,7 +122,7 @@
                 </xs:documentation>
             </xs:annotation>
             <xs:sequence>
-                <xs:element ref="bank" minOccurs="0"/>
+                <xs:element ref="parametersgroup" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

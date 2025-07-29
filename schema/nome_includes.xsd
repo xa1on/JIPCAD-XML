@@ -1,46 +1,27 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <xs:attribute name="filename">
+    <xs:include schemaLocation="nome_core.xsd"/>
+    <xs:element name="include" type="file">
         <xs:annotation>
             <xs:documentation>
-                Must have ".nomxml" extension. value: str.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:pattern value=".*\.nomxml"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:attribute>
-    <xs:element name="file">
-        <xs:annotation>
-            <xs:documentation>
-                A file. Must have ".nomxml" extension.
+                An included file. Must have ".nomxml" extension.
                 attributes:
-                    filename.
+                    path.
             </xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-            <xs:attribute ref="filename" use="required"/>
-        </xs:complexType>
     </xs:element>
-    <xs:group name="filelist">
-        <xs:sequence>
-            <xs:element ref="file" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:group>
     <xs:element name="includes">
         <xs:annotation>
             <xs:documentation>
-                List of file elements to include/reference.
+                List of include elements to include/reference.
                 elements:
-                    list[file].
+                    list[include].
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:group ref="filelist"/>
+                <xs:element ref="include" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

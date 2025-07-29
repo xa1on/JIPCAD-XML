@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="rendergroup" abstract="true">
+        <xs:annotation>
+            <xs:documentation>
+                Abstract element for render elements.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    
     <xs:element name="frustrum">
         <xs:annotation>
             <xs:documentation>
@@ -61,7 +70,7 @@
     </xs:element>
 
 
-    <xs:element name="camera">
+    <xs:element name="camera" substitutionGroup="rendergroup">
         <xs:annotation>
             <xs:documentation>
                 NOME camera element.
@@ -108,7 +117,7 @@
         </xs:annotation>
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="camera" minOccurs="0"/>
+                <xs:element ref="rendergroup" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

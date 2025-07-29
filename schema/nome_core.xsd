@@ -1,4 +1,23 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="filename">
+        <xs:annotation>
+            <xs:documentation>
+                Must have ".nomxml" extension. value: str.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*\.nomxml"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="file">
+        <xs:attribute name="path" type="filename" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    Must have ".nomxml" extension. value: str.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
 </xs:schema>

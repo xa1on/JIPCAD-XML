@@ -1,7 +1,25 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="instance">
+        <xs:complexType>
+            <xs:sequence>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
     <xs:element name="scene">
-        
+        <xs:annotation>
+            <xs:documentation>
+                Scene specifications.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 </xs:schema>
