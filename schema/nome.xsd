@@ -1,14 +1,20 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="nome_includes.xsd"></xs:include>
     <xs:element name="nome">
         <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>
+                    A NOME element. Consists of version attribute, includes, generators, scene, parameters, and render elements.
+                </xs:documentation>
+            </xs:annotation>
             <xs:sequence>
-                <xs:element name="includes"/>
-                <xs:element name="generators"/>
-                <xs:element name="scene"/>
-                <xs:element name="parameters"/>
-                <xs:element name="render"/>
+                <xs:element ref="includes"/>
+                <xs:element ref="generators"/>
+                <xs:element ref="scene"/>
+                <xs:element ref="parameters"/>
+                <xs:element ref="render"/>
             </xs:sequence>
             <xs:attribute fixed="0.0.1" name="version">
                 <xs:annotation>
@@ -24,4 +30,4 @@
             </xs:attribute>
         </xs:complexType>
     </xs:element>
-</xs:schema> 
+</xs:schema>
