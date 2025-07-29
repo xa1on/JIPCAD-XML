@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation="nome_core.xsd"/>
     <xs:include schemaLocation="nome_includes.xsd"/>
     <xs:include schemaLocation="nome_generators.xsd"/>
