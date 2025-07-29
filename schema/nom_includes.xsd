@@ -4,19 +4,19 @@
     <xs:attribute name="filename">
         <xs:annotation>
             <xs:documentation>
-                Must have ".nomexml" extension.
+                Must have ".nomxml" extension.
             </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
             <xs:restriction base="xs:string">
-                <xs:pattern value=".*\.nomexml"/>
+                <xs:pattern value=".*\.nomxml"/>
             </xs:restriction>
         </xs:simpleType>
     </xs:attribute>
     <xs:element name="file">
         <xs:annotation>
             <xs:documentation>
-                A file. Must have ".nomexml" extension.
+                A file. Must have ".nomxml" extension.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>

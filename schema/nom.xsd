@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="nom_core.xsd"/>
+    <xs:include schemaLocation="nom_includes.xsd"/>
+    <xs:include schemaLocation="nom_generators.xsd"/>
+    <xs:include schemaLocation="nom_scene.xsd"/>
+    <xs:include schemaLocation="nom_parameters.xsd"/>
+    <xs:include schemaLocation="nom_render.xsd"/>
+    <xs:element name="nom">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>
+                    A NOM element. Consists of version attribute, includes, generators, scene, parameters, and render elements.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element ref="includes" minOccurs="0"/>
+                <xs:element ref="parameters" minOccurs="0"/>
+                <xs:element ref="generators"/>
+                <xs:element ref="scene"/>
+                <xs:element ref="render" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute fixed="0.0.1" name="version">
+                <xs:annotation>
+                    <xs:documentation>
+                        NOMXML Schema versions consists of 3 digits, X.Y.Z, whose digits correspond to the version number of the schema. X is representative of major, non-backwards compatible changes, Y is representative of smaller incremantal backwards compatible changes, Z is representative of smaller bug fixes.
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+\.\d+\.\d+"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
