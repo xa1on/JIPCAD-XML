@@ -23,7 +23,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:attribute name="id" type="xs:string" use="required">
+            <xs:attribute name="id" type="xs:ID" use="required">
                 <xs:annotation>
                     <xs:documentation>
                         Unique Identifier for the variable. value: str
@@ -71,7 +71,7 @@
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:attribute name="ref" type="xs:string" use="required">
+            <xs:attribute name="ref" type="xs:IDREF" use="required">
                 <xs:annotation>
                     <xs:documentation>
                         Reference ID value. value:str
@@ -122,7 +122,7 @@
                 </xs:documentation>
             </xs:annotation>
             <xs:sequence>
-                <xs:element ref="parametersgroup" minOccurs="0"/>
+                <xs:element ref="parametersgroup" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

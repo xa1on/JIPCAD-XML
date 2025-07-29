@@ -11,6 +11,8 @@
             <xs:pattern value=".*\.nomxml"/>
         </xs:restriction>
     </xs:simpleType>
+
+    
     <xs:complexType name="file">
         <xs:attribute name="path" type="filename" use="required">
             <xs:annotation>
