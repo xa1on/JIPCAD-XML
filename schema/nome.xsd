@@ -7,7 +7,7 @@
     <xs:include schemaLocation="nome_scene.xsd"/>
     <xs:include schemaLocation="nome_parameters.xsd"/>
     <xs:include schemaLocation="nome_render.xsd"/>
-    <xs:element name="nom">
+    <xs:element name="nome">
         <xs:complexType>
             <xs:annotation>
                 <xs:documentation>
