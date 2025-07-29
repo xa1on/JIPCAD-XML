@@ -1,22 +1,32 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <xs:element name="file">
+    <xs:attribute name="filename">
+        <xs:annotation>
+            <xs:documentation>
+                Must have ".nomexml" extension.
+            </xs:documentation>
+        </xs:annotation>
         <xs:simpleType>
-            <xs:annotation>
-                <xs:documentation>
-                    A string filename. Must have .nomexml extension.
-                </xs:documentation>
-            </xs:annotation>
             <xs:restriction base="xs:string">
                 <xs:pattern value=".*\.nomexml"/>
             </xs:restriction>
         </xs:simpleType>
+    </xs:attribute>
+    <xs:element name="file">
+        <xs:annotation>
+            <xs:documentation>
+                A file. Must have ".nomexml" extension.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute ref="filename"/>
+        </xs:complexType>
     </xs:element>
     <xs:group name="filelist">
         <xs:annotation>
             <xs:documentation>
-                List of files
+                List of files.
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
@@ -27,7 +37,7 @@
         <xs:complexType>
             <xs:annotation>
                 <xs:documentation>
-                    List of files to include
+                    List of files to include.
                 </xs:documentation>
             </xs:annotation>
             <xs:sequence>
