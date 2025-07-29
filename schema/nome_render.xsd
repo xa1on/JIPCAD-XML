@@ -25,21 +25,21 @@
             <xs:attribute name="right" type="xs:float" use="required">
                 <xs:annotation>
                     <xs:documentation>
-                        Defines the Right X axis of the Nearplane and Farplane. value: float.
+                        Defines the right X axis of the Nearplane and Farplane. value: float.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="bottom" type="xs:float" use="required">
                 <xs:annotation>
                     <xs:documentation>
-                        Defines the Bottom Y axis of the Nearplane and Farplane. value: float.
+                        Defines the bottom Y axis of the Nearplane and Farplane. value: float.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="top" type="xs:float" use="required">
                 <xs:annotation>
                     <xs:documentation>
-                        Defines the Top Y axis of the Nearplane and Farplane. value: float.
+                        Defines the top Y axis of the Nearplane and Farplane. value: float.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
@@ -64,7 +64,7 @@
     <xs:element name="camera">
         <xs:annotation>
             <xs:documentation>
-                NOME Camera Element.
+                NOME camera element.
                 attributes:
                     id.
                     projection: default=PERSPECTIVE.
@@ -79,7 +79,7 @@
             <xs:attribute name="id" type="xs:string" use="required">
                 <xs:annotation>
                     <xs:documentation>
-                        Unique ID value for the Camera. value: str.
+                        Unique Identifier value for the Camera. value: str.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
@@ -103,7 +103,7 @@
     <xs:element name="render">
         <xs:annotation>
             <xs:documentation>
-                NOME Render Specifications
+                NOME render specifications.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>

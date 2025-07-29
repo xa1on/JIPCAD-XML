@@ -1,7 +1,120 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="set">
+        <xs:annotation>
+            <xs:documentation>
+                User-defined variable. Able to be used as a slider.
+                attributes:
+                    id.
+                    init.
+                    min.
+                    max.
+                    stepsize.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute name="id" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unique Identifier for the variable. value: str
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="init" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Initial value. value: float
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="min" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Minimum value. value: float
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="max" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Maximum value. value: float
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="stepsize" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Step size of the slider. value: float
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="id">
+        <xs:annotation>
+            <xs:documentation>
+                Slider ID value.
+                attributes:
+                    ref.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute name="ref" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Reference ID value. value:str
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="bank">
+        <xs:annotation>
+            <xs:documentation>
+                Allows the user to change any numerical value in the .NOM file through an interactive slider in the GUI.
+                To use a user-defined parameter to define part of a generator, use this notation: {bankName.varName}. Ex: if a bank has been named `bank id=par` with one `set id=rad init=10 min=3 max=100 step_size=1`, the slider could be used in a circle with circle id=circ radius={expr par.rad} segs=40 to create a circle with a variable radius and 40 segments.
+                elements:
+                    list[set].
+                    sliders.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="set" maxOccurs="unbounded"/>
+                <xs:element name="sliders" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>
+                            List of slider IDs to be displayed.
+                            elements:
+                                list[id]
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="id" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
     <xs:element name="parameters">
-        
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>
+                    Parameter sepecifications.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element ref="bank" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 </xs:schema>
