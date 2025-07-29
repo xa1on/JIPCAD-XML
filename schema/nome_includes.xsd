@@ -4,7 +4,7 @@
     <xs:attribute name="filename">
         <xs:annotation>
             <xs:documentation>
-                Must have ".nomxml" extension.
+                Must have ".nomxml" extension. value: str.
             </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
@@ -17,29 +17,28 @@
         <xs:annotation>
             <xs:documentation>
                 A file. Must have ".nomxml" extension.
+                attributes:
+                    filename.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:attribute ref="filename"/>
+            <xs:attribute ref="filename" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:group name="filelist">
-        <xs:annotation>
-            <xs:documentation>
-                List of files.
-            </xs:documentation>
-        </xs:annotation>
         <xs:sequence>
             <xs:element ref="file" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:group>
     <xs:element name="includes">
+        <xs:annotation>
+            <xs:documentation>
+                List of file elements to include/reference.
+                elements:
+                    list[file].
+            </xs:documentation>
+        </xs:annotation>
         <xs:complexType>
-            <xs:annotation>
-                <xs:documentation>
-                    List of files to include.
-                </xs:documentation>
-            </xs:annotation>
             <xs:sequence>
                 <xs:group ref="filelist"/>
             </xs:sequence>

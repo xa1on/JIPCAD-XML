@@ -1,7 +1,115 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="frustrum">
+        <xs:annotation>
+            <xs:documentation>
+                Camera Frustrum Element
+                attributes:
+                    left.
+                    right.
+                    bottom.
+                    top.
+                    nearplane: default=0.1.
+                    farplane: default=1000.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute name="left" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Defines the left X axis of the Nearplane and Farplane. value: float.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="right" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Defines the Right X axis of the Nearplane and Farplane. value: float.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="bottom" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Defines the Bottom Y axis of the Nearplane and Farplane. value: float.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="top" type="xs:float" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Defines the Top Y axis of the Nearplane and Farplane. value: float.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="nearplane" type="xs:float" default="0.1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Defines the Z axis of the Nearplane. value: float.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="farplane" type="xs:float" default="1000">
+                <xs:annotation>
+                    <xs:documentation>
+                        Defines the Z axis of the Farplane. value: float.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="camera">
+        <xs:annotation>
+            <xs:documentation>
+                NOME Camera Element.
+                attributes:
+                    id.
+                    projection: default=PERSPECTIVE.
+                elements:
+                    frustrum.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="frustrum"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required">
+                <xs:annotation>
+                    <xs:documentation>
+                        Unique ID value for the Camera. value: str.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="projection" default="PERSPECTIVE">
+                <xs:annotation>
+                    <xs:documentation>
+                        Projection value. value: [PERSPECTIVE] or [PARALLEL].
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PERSPECTIVE"/>
+                        <xs:enumeration value="PARALLEL"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+
     <xs:element name="render">
-        
+        <xs:annotation>
+            <xs:documentation>
+                NOME Render Specifications
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="camera" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
     </xs:element>
 </xs:schema>
