@@ -12,14 +12,34 @@
         </xs:restriction>
     </xs:simpleType>
 
-    
+
     <xs:complexType name="file">
+        <xs:annotation>
+            <xs:documentation>
+                File.
+            </xs:documentation>
+        </xs:annotation>
         <xs:attribute name="path" type="filename" use="required">
             <xs:annotation>
                 <xs:documentation>
-                    Must have ".nomxml" extension. value: str.
+                    Filename of file. Must have ".nomxml" extension. value: str.
                 </xs:documentation>
             </xs:annotation>
         </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="vector">
+        <xs:annotation>
+            <xs:documentation>
+                3 Dimensional vector.
+                attributes:
+                    x: float
+                    y: float
+                    z: float
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="x" type="xs:float" use="required"/>
+        <xs:attribute name="y" type="xs:float" use="required"/>
+        <xs:attribute name="z" type="xs:float" use="required"/>
     </xs:complexType>
 </xs:schema>
